@@ -7,6 +7,8 @@ pkgdesc='Open-source office suite that combines text, spreadsheet and presentati
 url="https://www.onlyoffice.com/"
 license=('AGPL3')
 arch=('x86_64')
+provides=('onlyoffice' 'onlyoffice-bin')
+conflicts=('onlyoffice' 'onlyoffice-bin')
 depends=('desktop-file-utils' 'gconf' 'hicolor-icon-theme' 'ttf-dejavu' 'ttf-liberation' 'ttf-carlito')
 options=(!strip !zipman)
 source=("https://github.com/ONLYOFFICE/DesktopEditors/releases/download/ONLYOFFICE-DesktopEditors-${pkgver}/${pkgname}-x64.tar.gz"
@@ -25,9 +27,9 @@ package() {
   # suid sandbox
   chmod 4755 "$pkgdir/usr/bin/onlyoffice/desktopeditors/chrome-sandbox"
   install -D -m0755 "${srcdir}/${pkgname}.sh" $pkgdir/usr/bin/onlyoffice/desktopeditors/${pkgname}.sh
+  install -Dm644 "${srcdir}/ONLYOFFICE-LICENSE" $pkgdir/usr/share/licenses/${pkgname}/ONLYOFFICE-LICENSE
   ln -s "/usr/bin/onlyoffice/desktopeditors/${pkgname}.sh" "${pkgdir}/usr/bin/${pkgname}"
   install -Dm644 "${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
-  install -Dm644 "${srcdir}/ONLYOFFICE-LICENSE" $pkgdir/usr/share/licenses/${pkgname}/ONLYOFFICE-LICENSE
   install -Dm644 "${pkgdir}/usr/bin/onlyoffice/desktopeditors/LICENSE.htm" $pkgdir/usr/share/licenses/$pkgname/LICENSE
   install -Dm644 "${pkgdir}/usr/bin/onlyoffice/desktopeditors/3DPARTYLICENSE" $pkgdir/usr/share/licenses/$pkgname/3DPARTYLICENSE
 }

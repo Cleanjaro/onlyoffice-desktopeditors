@@ -3,7 +3,7 @@
 
 pkgname=onlyoffice-desktopeditors
 pkgver=5.3.5
-pkgrel=3
+pkgrel=3.1
 pkgdesc='Open-source office suite that combines text, spreadsheet and presentation editors.'
 url="https://www.onlyoffice.com/"
 license=('AGPL3')
@@ -18,16 +18,16 @@ source=("https://github.com/ONLYOFFICE/DesktopEditors/releases/download/ONLYOFFI
 noextract=("${pkgname}-x64.tar.gz")
 sha256sums=('e81df64843274e707ba61ca064694a087b9eceff5b4c24f19533121965913d88'
             '29920acdeff895763893275c543d4f568ed1a7ca1e8b493188636df708e69e9f'
-            '29d03e3c729b6ff3be9e873eca228406f647960da59fd3ddfa4b22628192103d')
+            '8636c7806386c9e445808fb1ff68ddebf254971e927848eabd6e9b3e02b2de79')
 
 package() {
-  install -d -m0755 "$pkgdir"/{usr/bin/onlyoffice,usr/bin}
-  tar -zxvf ${pkgname}-x64.tar.gz -C "$pkgdir"/usr/bin/onlyoffice
+  install -d -m0755 "$pkgdir"/{opt/onlyoffice,usr/bin}
+  tar -zxvf ${pkgname}-x64.tar.gz -C "$pkgdir"/opt/onlyoffice
   # suid sandbox
-  chmod 4755 "$pkgdir/usr/bin/onlyoffice/desktopeditors/chrome-sandbox"
-  
+  chmod 4755 "$pkgdir/opt/onlyoffice/desktopeditors/chrome-sandbox"
+  # install script, desktop and license files
   install -D -m0755 "${srcdir}/onlyoffice-desktopeditors" "$pkgdir/usr/bin/onlyoffice-desktopeditors"
   install -Dm644 "${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
-  install -Dm644 "${pkgdir}/usr/bin/onlyoffice/desktopeditors/LICENSE.htm" $pkgdir/usr/share/licenses/$pkgname/LICENSE
-  install -Dm644 "${pkgdir}/usr/bin/onlyoffice/desktopeditors/3DPARTYLICENSE" $pkgdir/usr/share/licenses/$pkgname/3DPARTYLICENSE
+  install -Dm644 "${pkgdir}/opt/onlyoffice/desktopeditors/LICENSE.htm" $pkgdir/usr/share/licenses/$pkgname/LICENSE
+  install -Dm644 "${pkgdir}/opt/onlyoffice/desktopeditors/3DPARTYLICENSE" $pkgdir/usr/share/licenses/$pkgname/3DPARTYLICENSE
 }

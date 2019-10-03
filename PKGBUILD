@@ -2,8 +2,8 @@
 # Contributor: Josip Ponjavic <josipponjavic_gmail.com>
 
 pkgname=onlyoffice-desktopeditors
-pkgver=5.3.5
-pkgrel=3.1
+pkgver=5.4.1
+pkgrel=1
 pkgdesc='Open-source office suite that combines text, spreadsheet and presentation editors.'
 url="https://www.onlyoffice.com/"
 license=('AGPL3')
@@ -12,11 +12,11 @@ provides=('onlyoffice' 'onlyoffice-bin')
 conflicts=('onlyoffice' 'onlyoffice-bin')
 depends=('desktop-file-utils' 'gconf' 'hicolor-icon-theme' 'ttf-dejavu' 'ttf-liberation' 'ttf-carlito')
 options=(!strip !zipman)
-source=("https://github.com/ONLYOFFICE/DesktopEditors/releases/download/ONLYOFFICE-DesktopEditors-${pkgver}/${pkgname}-x64.tar.gz"
+source=("https://github.com/ONLYOFFICE/DesktopEditors/releases/download/ONLYOFFICE-DesktopEditors-${pkgver}-2/${pkgname}-x64.tar.gz"
         "${pkgname}.desktop"
         "onlyoffice-desktopeditors")
 noextract=("${pkgname}-x64.tar.gz")
-sha256sums=('e81df64843274e707ba61ca064694a087b9eceff5b4c24f19533121965913d88'
+sha256sums=('3664a82a3d6fa8b010c045d2864865af2cd7169f0569fbb944181c34f81ac276'
             '29920acdeff895763893275c543d4f568ed1a7ca1e8b493188636df708e69e9f'
             '8636c7806386c9e445808fb1ff68ddebf254971e927848eabd6e9b3e02b2de79')
 

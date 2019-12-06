@@ -21,6 +21,7 @@ sha256sums=('41a36c030746e05a4556af930b15419ac94aaf7ba3f0b95ec99aa0f339dd050f'
             '8636c7806386c9e445808fb1ff68ddebf254971e927848eabd6e9b3e02b2de79')
 
 package() {
+  # extract content
   install -d -m0755 "$pkgdir"/{opt/onlyoffice,usr/bin}
   tar -zxvf ${pkgname}-x64.tar.gz -C "$pkgdir"/opt/onlyoffice
   # suid sandbox

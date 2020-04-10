@@ -2,7 +2,7 @@
 # Contributor: Josip Ponjavic <josipponjavic_gmail.com>
 
 pkgname=onlyoffice-desktopeditors
-pkgver=5.4.2
+pkgver=5.5.1
 pkgrel=1
 pkgdesc='Open-source office suite that combines text, spreadsheet and presentation editors.'
 url="https://www.onlyoffice.com/"
@@ -16,7 +16,7 @@ source=("https://github.com/ONLYOFFICE/DesktopEditors/releases/download/ONLYOFFI
         "${pkgname}.desktop"
         "onlyoffice-desktopeditors")
 noextract=("${pkgname}-x64.tar.gz")
-sha256sums=('41a36c030746e05a4556af930b15419ac94aaf7ba3f0b95ec99aa0f339dd050f'
+sha256sums=('0d1c0e5601592977e66e39dfa901532845408c5402f5e93f2f3875efacea52ce'
             '29920acdeff895763893275c543d4f568ed1a7ca1e8b493188636df708e69e9f'
             '8636c7806386c9e445808fb1ff68ddebf254971e927848eabd6e9b3e02b2de79')
 
